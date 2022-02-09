@@ -56,11 +56,11 @@ namespace Hacker
             }
             if (vector.x < 0 && vector.z > 0)//2
             {
-                return 90 - Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
+                return Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
             }
             if (vector.x < 0 && vector.z < 0)//3
             {
-                return 90 + Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
+                return Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
             }
             if (vector.x > 0 && vector.z < 0)//4
             {
@@ -154,8 +154,8 @@ namespace Hacker
                         {
                             //Vector3 LockVector = mainCam.WorldToScreenPoint(LockentityZombie.emodel.GetHeadTransform().position);
                             Vector3 LockVector = LockentityZombie.emodel.GetHeadTransform().position - Objects.PlayerLocal.transform.position;
-                            Objects.PlayerLocal.vp_FPCamera.Yaw = (float)GetX(LockVector);
-                            Objects.PlayerLocal.vp_FPCamera.Pitch = (float)GetY(LockVector);
+                            Objects.PlayerLocal.vp_FPCamera.Yaw = (float)GetX(LockVector);//((float)GetX(LockVector) - Objects.PlayerLocal.vp_FPCamera.Yaw) / 10;
+                            Objects.PlayerLocal.vp_FPCamera.Pitch = (float)GetY(LockVector);//((float)GetY(LockVector) - Objects.PlayerLocal.vp_FPCamera.Pitch) / 10;
                             Debug.Log($"{LockVector}{Objects.PlayerLocal.vp_FPCamera.Pitch}:{Objects.PlayerLocal.vp_FPCamera.Yaw}");
                         }
                         //mouse_event(1, (int)LockVector.x, (int)LockVector.y, 0, 0);
