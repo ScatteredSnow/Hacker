@@ -56,7 +56,7 @@ namespace Hacker
             }
             if (vector.x < 0 && vector.z > 0)//2
             {
-                return -Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
+                return 90 - Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
             }
             if (vector.x < 0 && vector.z < 0)//3
             {
@@ -64,7 +64,7 @@ namespace Hacker
             }
             if (vector.x > 0 && vector.z < 0)//4
             {
-                return -90 + Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
+                return Math.Atan2(vector.x, vector.z) * 180f / Math.PI;
             }
             return 0f;
         }
